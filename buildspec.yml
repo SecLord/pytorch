@@ -24,5 +24,5 @@ phases:
       - echo "VB_SCAN_ID created - ${VB_SCAN_ID}" 
       - pwd >> file.txt
       - export file_path="$(cat file.txt)"
-      - docker run -v $file_path:${VB_DIRECTORY_PATH} -e SCANCODE_DEBUG_PACKAGE_GRADLE=${VB_SCANCODE_DEBUG_PACKAGE_GRADLE} -e SCAN_LICENSE=${VB_SCAN_LICENSE} -e SCAN_ID=${VB_SCAN_ID} -e SCAN_TYPE=${VB_SCAN_TYPE} -e DIRECTORY_PATH=${VB_DIRECTORY_PATH} -e API_KEY=${VB_API_KEY} ${VB_REGISTRY_ID}.dkr.ecr.${VB_REGION}.amazonaws.com/${VB_IMAGE_NAME} run_scanner 
+      - docker run -v $(pwd):${VB_DIRECTORY_PATH} -e SCANCODE_DEBUG_PACKAGE_GRADLE=${VB_SCANCODE_DEBUG_PACKAGE_GRADLE} -e SCAN_LICENSE=${VB_SCAN_LICENSE} -e SCAN_ID=${VB_SCAN_ID} -e SCAN_TYPE=${VB_SCAN_TYPE} -e DIRECTORY_PATH=${VB_DIRECTORY_PATH} -e API_KEY=${VB_API_KEY} ${VB_REGISTRY_ID}.dkr.ecr.${VB_REGION}.amazonaws.com/${VB_IMAGE_NAME} run_scanner 
       - echo "VB Scanning Completed"
